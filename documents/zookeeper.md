@@ -1,33 +1,33 @@
-#	Ò»¡¢zookeeper µÄ°²×°  ÒÔ3.4.8ÎªÀı
-###		1.µ¥»ú°²×°
-			1)°²×°Ä¿Â¼£º/home/zookeeper/
-			2)ÉÏ´«Ñ¹Ëõ°ü zookeeper-3.4.8.tar.gz ½âÑ¹µ½µ±Ç°Ä¿Â¼ÏÂ²¢¸ÄÃûÎª zookeeper
-			3)ÔÚ/home/zookeeper/ÏÂ´´½¨ zk1Ä¿Â¼ ²¢´´½¨data ºÍlogÄ¿Â¼ 
-			4)¸´ÖÆ/home/zookeeper/zookeeper/conf/zoo_sample.cfg ²¢¸ÄÃûÎªzoo.cfg ²¢±à¼­zoo.cfg
-				tickTime=2000 ZookeeperÊ¹ÓÃµÄ»ù±¾Ê±¼ä£¬Ê±¼äµ¥Î»ÎªºÁÃë¡£ËüÓÃÓÚĞÄÌø»úÖÆ£¬²¢ÇÒÉèÖÃ×îĞ¡µÄ
-								session³¬Ê±Ê±¼äÎªÁ½±¶ĞÄÌøÊ±¼ä
-				initLimit=5        ÊÇZookeeperÓÃËüÀ´ÏŞ¶¨quorumÖĞµÄZookeeper·şÎñÆ÷Á¬½Óµ½LeaderµÄ³¬Ê±Ê±¼ä.
-							          ´ËÊ±¸Ã²ÎÊıÉèÖÃÎª5£¬ËµÃ÷Ê±¼äÏŞÖÆÎª5±¶tickTime, ¼´5*2000=10000ms=10s
-				syncLimit=5        ±êÊ¶ Leader Óë Follower Ö®¼ä·¢ËÍÏûÏ¢£¬ÇëÇóºÍÓ¦´ğÊ±¼ä×î³¤Ê±¼ä ´ËÊ±¸Ã²ÎÊıÉèÖÃÎª5, 
-							      ËµÃ÷Ê±¼äÏŞÖÆÎª5±¶tickTime, ¼´5*2000=10000ms=10s
-				dataDir=/home/zookeeper/zk1/data   Êı¾İÄ¿Â¼. ¿ÉÒÔÊÇÈÎÒâÄ¿Â¼
-				dataLogDir=/home/zookeeper/zk1/log   logÄ¿Â¼, Í¬Ñù¿ÉÒÔÊÇÈÎÒâÄ¿Â¼. Èç¹ûÃ»ÓĞÉèÖÃ¸Ã²ÎÊı, 
-														    ½«Ê¹ÓÃºÍdataDirÏàÍ¬µÄÉèÖÃ
-				clientPort=2181  ¼àÌıclientÁ¬½ÓµÄ¶Ë¿ÚºÅ
-			5)Æô¶¯ ./zkServer.sh start  
-			6)¿Í»§¶ËÁ¬½Ó  ./zkCli.sh -server ip:2181
-			7)Í£Ö¹ ./zkServer.sh stop
+#	ä¸€ã€zookeeper çš„å®‰è£…  ä»¥3.4.8ä¸ºä¾‹
+###		1.å•æœºå®‰è£…
+			1)å®‰è£…ç›®å½•ï¼š/home/zookeeper/
+			2)ä¸Šä¼ å‹ç¼©åŒ… zookeeper-3.4.8.tar.gz è§£å‹åˆ°å½“å‰ç›®å½•ä¸‹å¹¶æ”¹åä¸º zookeeper
+			3)åœ¨/home/zookeeper/ä¸‹åˆ›å»º zk1ç›®å½• å¹¶åˆ›å»ºdata å’Œlogç›®å½• 
+			4)å¤åˆ¶/home/zookeeper/zookeeper/conf/zoo_sample.cfg å¹¶æ”¹åä¸ºzoo.cfg å¹¶ç¼–è¾‘zoo.cfg
+				tickTime=2000 Zookeeperä½¿ç”¨çš„åŸºæœ¬æ—¶é—´ï¼Œæ—¶é—´å•ä½ä¸ºæ¯«ç§’ã€‚å®ƒç”¨äºå¿ƒè·³æœºåˆ¶ï¼Œå¹¶ä¸”è®¾ç½®æœ€å°çš„
+								sessionè¶…æ—¶æ—¶é—´ä¸ºä¸¤å€å¿ƒè·³æ—¶é—´
+				initLimit=5        æ˜¯Zookeeperç”¨å®ƒæ¥é™å®šquorumä¸­çš„ZookeeperæœåŠ¡å™¨è¿æ¥åˆ°Leaderçš„è¶…æ—¶æ—¶é—´.
+							          æ­¤æ—¶è¯¥å‚æ•°è®¾ç½®ä¸º5ï¼Œè¯´æ˜æ—¶é—´é™åˆ¶ä¸º5å€tickTime, å³5*2000=10000ms=10s
+				syncLimit=5        æ ‡è¯† Leader ä¸ Follower ä¹‹é—´å‘é€æ¶ˆæ¯ï¼Œè¯·æ±‚å’Œåº”ç­”æ—¶é—´æœ€é•¿æ—¶é—´ æ­¤æ—¶è¯¥å‚æ•°è®¾ç½®ä¸º5, 
+							      è¯´æ˜æ—¶é—´é™åˆ¶ä¸º5å€tickTime, å³5*2000=10000ms=10s
+				dataDir=/home/zookeeper/zk1/data   æ•°æ®ç›®å½•. å¯ä»¥æ˜¯ä»»æ„ç›®å½•
+				dataLogDir=/home/zookeeper/zk1/log   logç›®å½•, åŒæ ·å¯ä»¥æ˜¯ä»»æ„ç›®å½•. å¦‚æœæ²¡æœ‰è®¾ç½®è¯¥å‚æ•°, 
+														    å°†ä½¿ç”¨å’ŒdataDirç›¸åŒçš„è®¾ç½®
+				clientPort=2181  ç›‘å¬clientè¿æ¥çš„ç«¯å£å·
+			5)å¯åŠ¨ ./zkServer.sh start  
+			6)å®¢æˆ·ç«¯è¿æ¥  ./zkCli.sh -server ip:2181
+			7)åœæ­¢ ./zkServer.sh stop
 		
-###		2.¼¯Èº
-			1)ÔÚÃ¿Ì¨·şÎñÆ÷ÉÏ°²×°°´ÕÕµ¥»ú°²×°µÄ·½Ê½°²×°
-			2)±à¼­zoo.cfg
+###		2.é›†ç¾¤
+			1)åœ¨æ¯å°æœåŠ¡å™¨ä¸Šå®‰è£…æŒ‰ç…§å•æœºå®‰è£…çš„æ–¹å¼å®‰è£…
+			2)ç¼–è¾‘zoo.cfg
 				server.1=10.1.39.43:2888:3888  
 				server.2=10.1.39.47:2888:3888    
 				server.3=10.1.39.48:2888:3888
-			3)ÔÚÃ¿¸ödataDirÄ¿Â¼ÏÂĞÂ½¨myidÎÄ¼ş£¬Ğ´ÈëÒ»¸öÊı×Ö, ¸ÃÊı×Ö±íÊ¾ÕâÊÇµÚ¼¸ºÅserver. 
-			      ¸ÃÊı×Ö±ØĞëºÍzoo.cfgÎÄ¼şÖĞµÄserver.XÖĞµÄXÒ»Ò»¶ÔÓ¦
-			4)·Ö±ğ½øÈë Ã¿¸öbinÄ¿Â¼ÏÂ  ./zkServer.sh start  Æô¶¯·şÎñ
+			3)åœ¨æ¯ä¸ªdataDirç›®å½•ä¸‹æ–°å»ºmyidæ–‡ä»¶ï¼Œå†™å…¥ä¸€ä¸ªæ•°å­—, è¯¥æ•°å­—è¡¨ç¤ºè¿™æ˜¯ç¬¬å‡ å·server. 
+			      è¯¥æ•°å­—å¿…é¡»å’Œzoo.cfgæ–‡ä»¶ä¸­çš„server.Xä¸­çš„Xä¸€ä¸€å¯¹åº”
+			4)åˆ†åˆ«è¿›å…¥ æ¯ä¸ªbinç›®å½•ä¸‹  ./zkServer.sh start  å¯åŠ¨æœåŠ¡
 		
 		
-#	¶ş¡¢zookeeperÔ­Àí
-		[Ô­Àí¼ûÁ¬½Ó](http://cailin.iteye.com/blog/2014486/)
+#	äºŒã€zookeeperåŸç†
+		[åŸç†è§è¿æ¥](http://cailin.iteye.com/blog/2014486/)

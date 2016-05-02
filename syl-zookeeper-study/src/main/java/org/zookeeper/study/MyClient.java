@@ -17,16 +17,16 @@ public class MyClient implements Watcher{
 	
 	ZooKeeper zk = null;
 	
-	//znode ¸ù½Úµã
+	//znode æ ¹èŠ‚ç‚¹
 	public String root ="/myconf";
 	
-	//Êı¾İ¿âÁ¬½Ó½Úµã
+	//æ•°æ®åº“è¿æ¥èŠ‚ç‚¹
 	public String urlNode=root +"/url";
 	
-	//ÓÃ»§Ãû½Úµã
+	//ç”¨æˆ·åèŠ‚ç‚¹
 	public String userNameNode =root + "/username";
 	
-	//ÃÜÂë½Úµã
+	//å¯†ç èŠ‚ç‚¹
 	public String passwdNode=root + "/passwd";
 	
 	private String url;
@@ -36,18 +36,18 @@ public class MyClient implements Watcher{
 	public void process(WatchedEvent event) {
 		EventType type = event.getType();
 		if(type == EventType.None){
-			logger.info("Á¬½Ó³É¹¦£¡");
+			logger.info("è¿æ¥æˆåŠŸï¼");
 		}else if(type == EventType.NodeCreated){
-			logger.info("´´½¨½Úµã³É¹¦");
+			logger.info("åˆ›å»ºèŠ‚ç‚¹æˆåŠŸ");
 			initValue();
 		}else if (type == EventType.NodeDataChanged) {
-			logger.info("¸üĞÂ½ÚµãÊı¾İ³É¹¦");
+			logger.info("æ›´æ–°èŠ‚ç‚¹æ•°æ®æˆåŠŸ");
 			initValue();
 		}else if (type == EventType.NodeChildrenChanged) {
-			logger.info("×Ó½Úµã¸üĞÂ³É¹¦");
+			logger.info("å­èŠ‚ç‚¹æ›´æ–°æˆåŠŸ");
 			initValue();
 		}else if (type == EventType.NodeDeleted) {
-			logger.info("½ÚµãÉ¾³ı³É¹¦");
+			logger.info("èŠ‚ç‚¹åˆ é™¤æˆåŠŸ");
 		}
 	}
 

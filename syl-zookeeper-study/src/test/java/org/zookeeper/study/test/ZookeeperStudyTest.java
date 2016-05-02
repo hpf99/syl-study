@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * zookeeperÑ§Ï° 1
- * zookeeperµÄÔö É¾ ¸Ä ²é
+ * zookeeperå­¦ä¹  1
+ * zookeeperçš„å¢ åˆ  æ”¹ æŸ¥
  * @author yanlei.shi
  *
  */
@@ -27,22 +27,22 @@ public class ZookeeperStudyTest {
 	
 	ZooKeeper zk =null;
 	
-	//zkµ¥½ÚµãµØÖ· £º¶Ë¿Ú
+	//zkå•èŠ‚ç‚¹åœ°å€ ï¼šç«¯å£
 	public String zkurl="node1:2181";
 	
-	//¿Í»§¶ËÁ¬½Ózk·şÎñÆ÷³¬Ê±Ê±¼ä 
+	//å®¢æˆ·ç«¯è¿æ¥zkæœåŠ¡å™¨è¶…æ—¶æ—¶é—´ 
 	public int timeout = 3000;
 	
-	//znode ¸ù½Úµã
+	//znode æ ¹èŠ‚ç‚¹
 	public String root ="/myconf";
 	
-	//Êı¾İ¿âÁ¬½Ó½Úµã
+	//æ•°æ®åº“è¿æ¥èŠ‚ç‚¹
 	public String urlNode=root +"/url";
 	
-	//ÓÃ»§Ãû½Úµã
+	//ç”¨æˆ·åèŠ‚ç‚¹
 	public String userNameNode =root + "/username";
 	
-	//ÃÜÂë½Úµã
+	//å¯†ç èŠ‚ç‚¹
 	public String passwdNode=root + "/passwd";
 	
 	public String auth_type = "digest";
@@ -62,7 +62,7 @@ public class ZookeeperStudyTest {
 	
 	
 	/**
-	 * ³õÊ¼»¯zkÊµÀı
+	 * åˆå§‹åŒ–zkå®ä¾‹
 	 */
 	@Before
 	public void init(){
@@ -70,17 +70,17 @@ public class ZookeeperStudyTest {
 			zk = new ZooKeeper(zkurl,timeout,new Watcher() {
 				
 				public void process(WatchedEvent event) {
-					System.out.println("´¥·¢ÁËÊÂ¼ş£º"+event.getType());
+					System.out.println("è§¦å‘äº†äº‹ä»¶ï¼š"+event.getType());
 				}
 			});
-			//ÅĞ¶ÏÊÇ·ñÁ¬½ÓÉÏ·şÎñ
+			//åˆ¤æ–­æ˜¯å¦è¿æ¥ä¸ŠæœåŠ¡
 			if(ZooKeeper.States.CONNECTED != zk.getState()){
-				logger.info("ÕıÔÚÁ¬½Ó·şÎñÆ÷  state:{}", zk.getState().name());
+				logger.info("æ­£åœ¨è¿æ¥æœåŠ¡å™¨  state:{}", zk.getState().name());
 				Thread.sleep(3000);
 			}
-			//Ìí¼ÓÈ¨ÏŞÑéÖ¤
+			//æ·»åŠ æƒé™éªŒè¯
 			zk.addAuthInfo(auth_type, auth_passwd.getBytes());
-			logger.info("Ìí¼ÓÈ¨ÏŞÑéÖ¤ authType:{},authPasswd:{}", auth_type,auth_passwd);
+			logger.info("æ·»åŠ æƒé™éªŒè¯ authType:{},authPasswd:{}", auth_type,auth_passwd);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
@@ -90,25 +90,25 @@ public class ZookeeperStudyTest {
 	
 	
 	/**
-	 * ²âÊÔ´´½¨znode
+	 * æµ‹è¯•åˆ›å»ºznode
 	 */
 	@Test
 	public void testCreateZnode(){
 		try {
 			if(zk.exists(root, true)==null){
-				logger.info("´´½¨½Úµãznode:{}", root);
+				logger.info("åˆ›å»ºèŠ‚ç‚¹znode:{}", root);
 				zk.create(root, "root".getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
 			}
 			if(zk.exists(urlNode, true)==null){
-				logger.info("´´½¨½Úµãznode:{}", urlNode);
+				logger.info("åˆ›å»ºèŠ‚ç‚¹znode:{}", urlNode);
 				zk.create(urlNode, urlStr.getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
 			}
 			if(zk.exists(userNameNode, true)==null){
-				logger.info("´´½¨½Úµãznode:{}", userNameNode);
+				logger.info("åˆ›å»ºèŠ‚ç‚¹znode:{}", userNameNode);
 				zk.create(userNameNode, username.getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
 			}
 			if(zk.exists(passwdNode, true)==null){
-				logger.info("´´½¨½Úµãznode:{}", passwdNode);
+				logger.info("åˆ›å»ºèŠ‚ç‚¹znode:{}", passwdNode);
 				zk.create(passwdNode, passwd.getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
 			}
 			
@@ -121,14 +121,14 @@ public class ZookeeperStudyTest {
 	
 	
 	/**
-	 * ²âÊÔ»ñÈ¡½ÚµãÊı¾İ
+	 * æµ‹è¯•è·å–èŠ‚ç‚¹æ•°æ®
 	 */
 	@Test
 	public void testGetZnode(){
 		try {
 			Stat stat = zk.exists(urlNode, false);
 			byte[] data = zk.getData(urlNode, false, stat);
-			logger.info("url½Úµã»ñÈ¡µÄÊı¾İÖµÎª:{}", new String(data));
+			logger.info("urlèŠ‚ç‚¹è·å–çš„æ•°æ®å€¼ä¸º:{}", new String(data));
 		} catch (KeeperException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
@@ -138,7 +138,7 @@ public class ZookeeperStudyTest {
 	
 	
 	/**
-	 * ²âÊÔ¸üĞÂ½ÚµãÉÏµÄÊı¾İ
+	 * æµ‹è¯•æ›´æ–°èŠ‚ç‚¹ä¸Šçš„æ•°æ®
 	 */
 	@Test
 	public void testUpdateData(){
@@ -146,7 +146,7 @@ public class ZookeeperStudyTest {
 			Stat stat = zk.exists(passwdNode, true);
 			Stat newstat = zk.setData(passwdNode, "duannannan".getBytes(), stat.getVersion());
 			byte[] data = zk.getData(passwdNode, true, newstat);
-			logger.info("password½Úµã»ñÈ¡µÄÊı¾İÖµÎª:{}", new String(data));
+			logger.info("passwordèŠ‚ç‚¹è·å–çš„æ•°æ®å€¼ä¸º:{}", new String(data));
 		} catch (KeeperException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
