@@ -30,4 +30,4 @@
 		
 		
 #	二、zookeeper原理
-		[原理见连接](http://cailin.iteye.com/blog/2014486/)
+[原理](http://cailin.iteye.com/blog/2014486/)
