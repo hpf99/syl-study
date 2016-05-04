@@ -33,3 +33,41 @@
 		
 #	二、zookeeper原理
 [原理](http://cailin.iteye.com/blog/2014486/)
+
+#	三、zookeeper集群安装过程中的问题
+
+	2016-05-03 22:47:30,781 [myid:3] - WARN  [QuorumPeer[myid=3]/0:0:0:0:0:0:0:0:2181:QuorumCnxManager@400] - 
+	Cannot open channel to 1 at election address node1/192.168.0.106:3888
+	java.net.ConnectException: 拒绝连接
+		at java.net.PlainSocketImpl.socketConnect(Native Method)
+		at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+		at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+		at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+		at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+		at java.net.Socket.connect(Socket.java:589)
+		at org.apache.zookeeper.server.quorum.QuorumCnxManager.connectOne(QuorumCnxManager.java:381)
+		at org.apache.zookeeper.server.quorum.QuorumCnxManager.connectAll(QuorumCnxManager.java:426)
+		at org.apache.zookeeper.server.quorum.FastLeaderElection.lookForLeader(FastLeaderElection.java:843)
+		at org.apache.zookeeper.server.quorum.QuorumPeer.run(QuorumPeer.java:822)
+					
+解决方式：
+
+	可以看到是连接到Node2的38888端口不通（我配置文件设置的节点端口，server.3=Node2:28888:38888），
+	这样就找到问题了，所以当遇到问题的时候记得查看日志文件，这才是最有帮助的，而不是修改什么nc参数。
+	
+	
+	查看Node2节点发现，38888端口绑带到127.0.0.1上了，这让其他节点怎么连接呀，只需修改/etc/hosts文件即可，
+	同理，修改Node1，Node3然后重启zookeeper，发现问题解决。
+
+	127.0.0.1   localhost node2 localhost4 localhost4.localdomain4
+	::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+	
+	
+	192.168.0.106 node1
+	192.168.0.105 node2
+	192.168.0.107 node3
+	192.168.0.109 node4
+	
+![错误图片](image/zookeeper_1.png)
+
+
