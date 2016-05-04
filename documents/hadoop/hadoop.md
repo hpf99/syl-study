@@ -98,7 +98,8 @@ node4 |     | 1   |    |      |  1  |    | 1
 	   <value>/home/hadoop</value>
 	 </property>
 	
-4)编辑 slaves 添加另外节点的名称
+4)编辑 slaves 添加datanode节点的名称
 
 	node2
 	node3
+	node4
