@@ -186,6 +186,7 @@ node4 |     | 1   |    |      |  1  |    | 1
     yum  install  ncurses-devel
 
 * ant 安装 配置环境变量
+
 ![环境变量](../image/hadoop_3.png)
 	
 	 source /etc/profile
