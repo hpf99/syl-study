@@ -103,3 +103,28 @@ node4 |     | 1   |    |      |  1  |    | 1
 	node2
 	node3
 	node4
+	
+5)编辑 hadoop-env.sh 添加JAVA_HOME的环境变量
+	
+	export JAVA_HOME=/usr/java/jdk1.8.0_65
+	
+3.启动
+	
+1)首先启动 三个节点的journalNode 
+	
+	./hdfs-daemon.sh journalnode start
+	
+2)两个nameNode中随便选一个 格式化
+	
+	./hdfs namenode -format
+	
+3)同步另一个nameNode的数据
+
+	./hdfs-daemon.sh nameNode start
+	./hdfs namenode -bootstrapStandby
+	
+4)初始化高可用的状态到zookeeper
+	
+	./hdfs zkfc -formatZK
+	
+
