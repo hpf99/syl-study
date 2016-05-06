@@ -120,7 +120,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 3)同步另一个nameNode的数据
 
-	./hadoop-daemon.sh start nameNode 
+	./hadoop-daemon.sh start namenode 
 	./hdfs namenode -bootstrapStandby
 	
 4)初始化高可用的状态到zookeeper
