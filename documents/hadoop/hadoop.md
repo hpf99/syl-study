@@ -1,5 +1,5 @@
 # 一、hadoop 的安装  以2.5.2为例
-1. 服务器列表
+### 1. 服务器列表
 
 node  | NN  | DN  |ZK  | ZKFC | JN  | RM | DM 
 ---   | --- | --- | ---| -----| --- | ---| ---
@@ -8,7 +8,7 @@ node2 | 1   | 1   | 1  |   1  |  1  |    | 1
 node3 |     | 1   | 1  |      |  1  |    | 1  
 node4 |     | 1   |    |      |  1  |    | 1  
 	
-2. 安装hadoop [hadoop官网](http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html) 配置
+### 2. 安装hadoop [hadoop官网](http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html) 配置
 
 1) 下载 hadoop-2.5.2.tar.gz 压缩包 并解压到/home/hadoop/下边<br/>
 2) 编辑 hdfs-site.xml 添加一些配置
@@ -108,7 +108,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 	export JAVA_HOME=/usr/java/jdk1.8.0_65
 	
-3.启动
+### 3.启动
 	
 1)首先启动 三个节点的journalNode 
 	
