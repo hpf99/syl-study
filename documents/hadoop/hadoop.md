@@ -112,7 +112,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 1)首先启动 三个节点的journalNode 
 	
-	./hadoop-daemon.sh journalnode start
+	./hadoop-daemon.sh start journalnode 
 	
 2)两个nameNode中随便选一个 格式化
 	
@@ -120,7 +120,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 3)同步另一个nameNode的数据
 
-	./hadoop-daemon.sh nameNode start
+	./hadoop-daemon.sh start nameNode 
 	./hdfs namenode -bootstrapStandby
 	
 4)初始化高可用的状态到zookeeper
