@@ -148,7 +148,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 
 ### 4.问题
 
-1)使用官网上直接下载的hadoop-2.5.2.tar.gz（32位的） 安装后会有很多报错 所以需要自己重新下载源码包 在 64位的机器上进行编译
+一、使用官网上直接下载的hadoop-2.5.2.tar.gz（32位的） 安装后会有很多报错 所以需要自己重新下载源码包 在 64位的机器上进行编译
 
 1.环境
 	
@@ -208,3 +208,33 @@ node4 |     | 1   |    |      |  1  |    | 1
 5.总结
 	
 	整个编译过程需要很长时间， 需要耐心等待！ 
+	
+二、配置完成后启动时会报错，并且两个namenode节点，会停掉  错误信息如下图
+
+![启动时报错](../hadoop_1.png)
+
+1.原因
+
+	NameNode作为JournalNode的客户端发起连接请求，但是失败了，然后NameNode又向其他节点依次发起了请求都失败了，直至到了最大重试次数。
+	
+	NameNode启动时JournalNode必须是已经启动状态，但是在启动时 先启动了namenode ,再启动journalnode,在journalnode启动好之前，
+	namenode这时已经达到了最大重试次数，所以最终失败了。
+	
+2.解决方案
+
+	修改core-site.xml中的ipc参数
+	
+	<property>
+	   <name>ipc.client.connect.max.retries</name>
+	   <value>100</value>
+	   <description>Indicates the number of retries a client will make to establish
+	       a server connection.
+	   </description>
+	 </property>
+	 <property>
+	   <name>ipc.client.connect.retry.interval</name>
+	   <value>10000</value>
+	   <description>Indicates the number of milliseconds a client will wait for
+	  before retrying to establish a server connection.
+	   </description>
+	 </property>
