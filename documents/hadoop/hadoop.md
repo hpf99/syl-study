@@ -125,6 +125,6 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 4)初始化高可用的状态到zookeeper
 	
-	./hdfs zkfc -formatZK     //随意一台namenode节点上执行该命令
+	./hdfs zkfc -formatZK     //随意一台namenode节点上执行该命令  zookeeper集群必须是已启动状态
 	
 
