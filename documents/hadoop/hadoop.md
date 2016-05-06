@@ -120,11 +120,11 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 3)同步另一个nameNode的数据
 
-	./hadoop-daemon.sh start namenode 
-	./hdfs namenode -bootstrapStandby
+	./hadoop-daemon.sh start namenode   //启动的namenode为已经格式化的节点
+	./hdfs namenode -bootstrapStandby   //在未格式化的节点上执行该命令
 	
 4)初始化高可用的状态到zookeeper
 	
-	./hdfs zkfc -formatZK
+	./hdfs zkfc -formatZK     //随意一台namenode节点上执行该命令
 	
 
