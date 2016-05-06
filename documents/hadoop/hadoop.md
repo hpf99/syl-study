@@ -127,4 +127,83 @@ node4 |     | 1   |    |      |  1  |    | 1
 	
 	./hdfs zkfc -formatZK     //随意一台namenode节点上执行该命令  zookeeper集群必须是已启动状态
 	
+5)停掉zookeeper以为的所有服务  再启动所有服务
 
+	./stop-dfs.sh
+	./start-dfs.sh 
+	
+	
+6)使用linux jps命令查看各个进程是否正常  并在浏览器中访问namenode
+
+	[root@node2 ~]# jps
+	2178 DataNode
+	2242 JournalNode
+	2118 NameNode
+	1516 QuorumPeerMain
+	2445 Jps
+	2303 DFSZKFailoverController
+	
+	看见一下图片代表成功了	
+![成功图片](../image/hadoop_2.png)
+
+### 4.问题
+
+1)使用官网上直接下载的hadoop-2.5.2.tar.gz（32位的） 安装后会有很多报错 所以需要自己重新下载源码包 在 64位的机器上进行编译
+
+1.环境
+	
+* 64位linux系统。我使用的是 CentOS
+* JDK 1.7+。注：使用1.7即可，如果是1.8则会编译失败
+* maven-3.3.9。 这是apache的一个产品，hadoop的编译要就是3.0以上
+* protobuf-2.5.0
+* hadoop-2.5.2-src 这个可以到Apache的官网上去下载
+* ant-1.9.7
+
+2.环境安装简单介绍
+
+* 安装JDK 并配置环境变量
+* 安装maven 并配置环境变量
+* 安装protobuf
+
+		安装protobuf前需要安装一些东西
+		yum  install  gcc    安装c++
+	  	yum  install  gcc-c++          然后会两次提示输入 y（yes/no）
+	  	yum install  make          可能会提示因为make已经是最新版本，而不会安装，这个无所谓，反正是最新版本，就不安装了
+	  	
+	  	tar -zxvf protobuf-2.5.0.tar.gz
+		
+		cd  /protobuf-2.5.0
+		./configrue
+		make
+		make  install
+		测试  
+		protoc  --version
+
+* 安装CMake
+
+	yum  install  cmake     
+    yum  install  openssl-devel
+    yum  install  ncurses-devel
+
+* ant 安装 配置环境变量
+![环境变量](../image/hadoop_3.png)
+	
+	 source /etc/profile
+
+3.编译hadoop
+	
+	tar -zxvf hadoop-2.5.2-src.tar.gz
+	cd /root/hadoop-2.5.2-src/
+    cd hadoop-2.5.2-src
+	mvn package -Pdist,native -DskipTests -Dtar
+	
+	编译完成后会有提示，SUCCESS /
+![编译成功](../image/hadoop_4.png)
+
+4.编译结果
+	
+	hadoop-dist/target/hadoop-2.5.2.tar.gz  就是刚刚编译好的64位hadoop包 
+	
+5.总结
+	
+	整个编译过程需要很长时间， 需要耐心等待！ 
