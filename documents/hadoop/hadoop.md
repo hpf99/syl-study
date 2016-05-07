@@ -143,7 +143,7 @@ node4 |     | 1   |    |      |  1  |    | 1
 	2445 Jps
 	2303 DFSZKFailoverController
 	
-	看见一下图片代表成功了	
+	看见以下图片代表成功了	
 ![成功图片](../image/hadoop_2.png)
 
 ### 4.问题
