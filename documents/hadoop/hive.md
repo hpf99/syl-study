@@ -10,6 +10,29 @@
 	
 3.进入到bin目录下  执行 ./hive 启动
 
+4.hive需要连接关系型数据库   以 MySQL为例 配置
+
+1)copy hive-default.xml.template 并改名为 hive-site.xml 并编辑 添加MySQL配置    hive 默认使用derby数据库，
+	直接修改以下三项就可以
+
+	<property>
+	    <name>javax.jdo.option.ConnectionURL</name>
+	    <value>jdbc:mysql://node3/hive</value>
+	    <description>JDBC connect string for a JDBC metastore</description>
+	</property>
+	<property>
+	    <name>javax.jdo.option.ConnectionUserName</name>
+	    <value>root</value>
+	    <description>Username to use against metastore database</description>
+	</property>
+	<property>
+	    <name>javax.jdo.option.ConnectionPassword</name>
+	    <value>shiyanlei</value>
+	    <description>password to use against metastore database</description>
+	</property>
+
+2)下载MySQL驱动包 mysql-connector-java-5.1.38.jar 添加到 hive/lib/ 目录下
+
 # 二、问题
 
 1.执行./hive 时 可能会报错
@@ -57,3 +80,32 @@
 * 解决：
 
 	cp /hive/apache-hive-1.2.1-bin/lib/jline-2.12.jar /hadoop-2.5.2/share/hadoop/yarn/lib
+	
+2.启动./hive 报错
+
+	[root@node1 bin]# ./hive
+
+	Logging initialized using configuration in jar:file:/home/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+	Exception in thread "main" java.lang.RuntimeException: java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: ${system:java.io.tmpdir%7D/$%7Bsystem:user.name%7D
+		at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:522)
+		at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:677)
+		at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:621)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:497)
+		at org.apache.hadoop.util.RunJar.main(RunJar.java:212)
+	Caused by: java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: ${system:java.io.tmpdir%7D/$%7Bsystem:user.name%7D
+		at org.apache.hadoop.fs.Path.initialize(Path.java:206)
+		at org.apache.hadoop.fs.Path.<init>(Path.java:172)
+		at org.apache.hadoop.hive.ql.session.SessionState.createSessionDirs(SessionState.java:563)
+		at org.apache.hadoop.hive.ql.session.SessionState.start(SessionState.java:508)
+		... 7 more
+	Caused by: java.net.URISyntaxException: Relative path in absolute URI: ${system:java.io.tmpdir%7D/$%7Bsystem:user.name%7D
+		at java.net.URI.checkPath(URI.java:1823)
+		at java.net.URI.<init>(URI.java:745)
+		at org.apach
+		
+* 解决方案
+	
+	将${system:java.io.tmpdir}，替换为/home/hive/tmp/
