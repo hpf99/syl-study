@@ -81,9 +81,9 @@
 				<configuration>
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
-						<manifest>
+						<!-- <manifest>
 							<mainClass>org.syl.hadoop.study.wordcount.WordCountJobRun</mainClass>
-						</manifest>
+						</manifest> -->
 					</archive>
 				</configuration>
 			</plugin>

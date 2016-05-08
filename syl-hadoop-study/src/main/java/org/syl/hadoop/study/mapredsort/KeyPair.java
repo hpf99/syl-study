@@ -6,11 +6,10 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.WritableComparable;
 
-public class KeyPair implements WritableComparable<KeyPair>{
+public class KeyPair implements WritableComparable<KeyPair> {
 
-	
 	private int year;
-	
+
 	private int hot;
 
 	public int getYear() {
@@ -40,20 +39,20 @@ public class KeyPair implements WritableComparable<KeyPair>{
 	}
 
 	public int compareTo(KeyPair o) {
-		
-		int result = Integer.compare(year,o.getYear());
-		if (result !=0) {
+
+		int result = Integer.compare(year, o.getYear());
+		if (result != 0) {
 			return result;
 		}
-		return Integer.compare(hot,o.getHot());
+		return Integer.compare(hot, o.getHot());
 	}
-	
+
 	public String toString() {
-		return year+"\t"+hot;
+		return year + "\t" + hot;
 	}
-	
+
 	public int hashCode() {
-		return new Integer(year+hot).hashCode();
+		return new Integer(year + hot).hashCode();
 	}
-	
+
 }

@@ -14,7 +14,7 @@ public class SortHot extends WritableComparator {
 	@Override
 	public int compare(WritableComparable a, WritableComparable b) {
 		KeyPair o1 = (KeyPair)a;
-		KeyPair o2 = (KeyPair)a;
+		KeyPair o2 = (KeyPair)b;
 		int res = Integer.compare(o1.getYear(), o2.getYear());
 		if (res !=0) {
 			return res;
