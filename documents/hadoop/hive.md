@@ -1,14 +1,14 @@
 # 一、hive安装 1.2.1 
 	
-1)官网上下载 apache-hive-1.2.1-bin.tar.gz 并解压到/home/hive目录下
+1.官网上下载 apache-hive-1.2.1-bin.tar.gz 并解压到/home/hive目录下
 
-2)因为hive是基于hadoop的数据仓库，所以必须配置hadoop环境变量 
+2.因为hive是基于hadoop的数据仓库，所以必须配置hadoop环境变量 
 
 	export HADOOP_HOME=/home/hadoop/hadoop-2.5.2
 	export PATH=$HADOOP_HOME/bin:$PATH
 	export PATH=$HADOOP_HOME/sbin:$PATH
 	
-3)进入到bin目录下  执行 ./hive 启动
+3.进入到bin目录下  执行 ./hive 启动
 
 # 二、问题
 
@@ -50,8 +50,8 @@
 		
 * 原因
 
-	hadoop目录下存在老版本jline：
-	/hadoop-2.5.2/share/hadoop/yarn/lib：
+	hadoop目录下存在老版本jline：<br/>
+	/hadoop-2.5.2/share/hadoop/yarn/lib：<br/>
 	-rw-r--r-- 1 root root  87325 Mar 10 18:10 jline-0.9.94.jar
 
 * 解决：
