@@ -136,26 +136,6 @@
 	
 *	表名和列名不区分大小写，SerDe 和属性名区分大小写。表和列的注释是字符串。
 
-<<<<<<< HEAD
->语法 <br/>
-=======
->语法
->>>>>>> edf5bfa4676e6e65473491cb061f2e864bd9aca0
-	CREATE \[TEMPORARY] \[EXTERNAL] TABLE \[IF NOT EXISTS] [db_name.]table_name   
-  [(col_name data_type [COMMENT col_comment], ...)]
-  [COMMENT table_comment]
-  [PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)]
-  [CLUSTERED BY (col_name, col_name, ...) [SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS]
-  [SKEWED BY (col_name, col_name, ...)                  -- (Note: Available in Hive 0.10.0 and later)]
-     ON ((col_value, col_value, ...), (col_value, col_value, ...), ...)
-     [STORED AS DIRECTORIES]
-  [
-   [ROW FORMAT row_format] 
-   [STORED AS file_format]
-     | STORED BY 'storage.handler.class.name' [WITH SERDEPROPERTIES (...)]  
-  ]
-  [LOCATION hdfs_path]
-  [TBLPROPERTIES (property_name=property_value, ...)]   -- (Note: Available in Hive 0.6.0 and later)
-  [AS select_statement];   
+
 	
 	
