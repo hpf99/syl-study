@@ -270,13 +270,9 @@ UNIONTYPE<data_type, data_type, ...>
 		
   	
 
-[hadoop](hadoop.md)<br/>
-	[hdfs](hdfs-shell.md)<br/>
-[mapred](mapred.md)<br/>
+*[hadoop](hadoop.md)<br/>
+	+[hdfs](hdfs-shell.md)<br/>
+*[mapred](mapred.md)<br/>
 
-* item1
- + item1.1
-* item2
- + item2.1
 	
 	
