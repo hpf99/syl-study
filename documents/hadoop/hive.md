@@ -136,7 +136,11 @@
 	
 *	表名和列名不区分大小写，SerDe 和属性名区分大小写。表和列的注释是字符串。
 
+<<<<<<< HEAD
 >语法 <br/>
+=======
+>语法
+>>>>>>> edf5bfa4676e6e65473491cb061f2e864bd9aca0
 	CREATE \[TEMPORARY] \[EXTERNAL] TABLE \[IF NOT EXISTS] [db_name.]table_name   
   [(col_name data_type [COMMENT col_comment], ...)]
   [COMMENT table_comment]
