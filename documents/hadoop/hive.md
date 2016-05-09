@@ -178,12 +178,12 @@
 
 3. 常用语句
 
-	show databases;  -- 列出所有数据库
-	use database_name; --选择一个数据库
-	show tables;		--列出该数据库下的所有表
-	desc table_name; --查看表结构
-	
-	select * from table_name;  --查询该表中的所有数据  (只有查询所有数据的时候  不会执行mapreduce)
+		show databases;  -- 列出所有数据库
+		use database_name; --选择一个数据库
+		show tables;		--列出该数据库下的所有表
+		desc table_name; --查看表结构
+		
+		select * from table_name;  --查询该表中的所有数据  (只有查询所有数据的时候  不会执行mapreduce)
 	
 	
 ![查询全部](../image/hive_1.png)
