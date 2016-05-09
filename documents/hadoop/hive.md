@@ -184,6 +184,8 @@
 	desc table_name; --查看表结构
 	
 	select * from table_name;  --查询该表中的所有数据  (只有查询所有数据的时候  不会执行mapreduce)
+	
+	
 ![查询全部](../image/hive_1.png)
 		
 #	四、 数据类型
