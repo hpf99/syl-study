@@ -147,6 +147,9 @@
 	
 *	表名和列名不区分大小写，SerDe 和属性名区分大小写。表和列的注释是字符串。
 
+*	分区表实际是一个文件夹，表名即文件夹名，每个分区，实际是表名这个文件夹下面的不同文件。
+	分区可以根据时间、地点等等进行划分。
+
 
 *	例句
 	
@@ -158,13 +161,32 @@
 		 	ip STRING COMMENT 'IP Address of the User'
 		 )
 		COMMENT 'This is the page view table'
+		PARTITIONED BY (ip	string)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
 		STORED AS TEXTFILE;
 
 *	terminated by：关于来源的文本数据的字段间隔符
 	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
+	PARTITIONED BY:是根据那个字段进行分区
 	
-2. 导入数据load data
+		create table t_emp(
+			id int,
+			name	string,
+			age		int,
+			dept_name	string
+		)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+		STORED AS TEXTFILE;
+		
+		create table dept_acount(
+			dname	string,
+			int num
+		)
+		
+	
+2. 导入数据
+
+1)load data
 
 *	语法
 
@@ -175,6 +197,16 @@
 		1)	把/root目录下的t_emp.txt文件内容导入到 t_emp表中
 		
 		load data local inpath '/root/t_emp.txt' into table t_emp;
+
+2)Inserting data into Hive Tables from queries
+
+* 语法
+
+		INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...)] select_statement1 FROM from_statement;
+		
+* 例句
+	
+		insert into table dept_acount select dept_name,count(1) from t_emp group by dept_name;
 
 3. 常用语句
 
