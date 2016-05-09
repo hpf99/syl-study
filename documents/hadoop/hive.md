@@ -137,5 +137,22 @@
 *	表名和列名不区分大小写，SerDe 和属性名区分大小写。表和列的注释是字符串。
 
 
+*	例句
+	
+	CREATE TABLE page_view(
+		viewTime INT, 
+		userid BIGINT,
+	 	page_url STRING, 
+	 	referrer_url STRING,
+	 	ip STRING COMMENT 'IP Address of the User'
+	 )
+	COMMENT 'This is the page view table'
+	ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
+	STORED AS TEXTFILE;
+
+*	terminated by：关于来源的文本数据的字段间隔符
+	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
+
+
 	
 	
