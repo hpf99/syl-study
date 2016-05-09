@@ -110,6 +110,17 @@
 	
 	将${system:java.io.tmpdir}，替换为/home/hive/tmp/
 	
+3.执行查询时报错
+	
+	Failed with exception java.io.IOException:java.lang.IllegalArgumentException: java.net.URISyntaxException: 
+	Relative path in absolute URI: ${system:user.name%7D
+
+* 解决方案
+
+	把hive-site.xml文件中的${system:user.name}全部替换为一个实际的路径 
+	
+	保存重启 即可
+	
 # 三、hive的基本操作
 
 1.	createtable
@@ -152,6 +163,78 @@
 
 *	terminated by：关于来源的文本数据的字段间隔符
 	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
+	
+2. 导入数据load data
+
+*	语法
+
+		load data [local] inpath 'filepath' into table table_name [partition (partcol1=val1, partcol2=val2 ...)]
+
+*	例句
+		
+		1)	把/root目录下的t_emp.txt文件内容导入到 t_emp表中
+		
+		load data local inpath '/root/t_emp.txt' into table t_emp;
+
+3. 常用语句
+
+	show databases;  -- 列出所有数据库
+	use database_name; --选择一个数据库
+	show tables;		--列出该数据库下的所有表
+	desc table_name; --查看表结构
+	
+	select * from table_name;  --查询该表中的所有数据  (只有查询所有数据的时候  不会执行mapreduce)
+![查询全部](../image/hive_1.png)
+		
+#	四、 数据类型
+
+1)数值类型(Numeric Types)
+
+type	 | 字节数
+-------  | -----
+TINYINT  |	1     
+SMALLINT |	2     
+INT  	 |	4     
+BIGINT   |	8     
+FLOAT    |	4     
+DOUBLE   |	8     
+DECIMAL  |	 
+
+2)日期类型(Date/Time Types)
+     
+type	   | 字节数
+-------    | -----
+TIMESTAMP  |	1     
+DATE 	   |	2   
+
+
+3)字符串
+
+STRING
+
+4)集合
+
+ARRAY<data_type>   
+MAP<primitive_type, data_type>
+STRUCT<col_name : data_type [COMMENT col_comment], ...>  --相当于一个对象
+UNIONTYPE<data_type, data_type, ...> 
+
+*	例句
+		
+		create table t_person(
+			id	int,
+			name	string,
+			like	array<string>,
+			feature		map<string,string>
+		)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+		COLLECTION ITEMS TERMINATED BY '_'  --集合分割符
+		MAP KEYS TERMINATED BY ':';			 --MAP key和value分割符
+		
+		//数据格式
+		1,zhangsan,sports_books_TV,sex:男_color:red
+		
+  	
 
 
 	
