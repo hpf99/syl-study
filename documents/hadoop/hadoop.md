@@ -192,12 +192,14 @@ node4 |     | 1   |    |      |  1  |    | 1   |      |
 	 source /etc/profile
 
 3.编译hadoop
+
 	```
 	
 	tar -zxvf hadoop-2.5.2-src.tar.gz
 	cd /root/hadoop-2.5.2-src/
      cd hadoop-2.5.2-src
 	mvn package -Pdist,native -DskipTests -Dtar
+	
 	```
 	
 	编译完成后会有提示，SUCCESS /
