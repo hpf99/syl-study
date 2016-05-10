@@ -88,14 +88,14 @@
 
 * drop table
 	
-	DROP TABLE [IF EXISTS] table_name ;	
+		DROP TABLE [IF EXISTS] table_name ;	
 
 * Truncate Table
 	
-	TRUNCATE TABLE table_name [PARTITION partition_spec];
-	
-	partition_spec:
-	: (partition_column = partition_col_value, partition_column = partition_col_value, ...)	
+		TRUNCATE TABLE table_name [PARTITION partition_spec];
+		
+		partition_spec:
+		: (partition_column = partition_col_value, partition_column = partition_col_value, ...)	
 		
 	
 3. 导入数据
