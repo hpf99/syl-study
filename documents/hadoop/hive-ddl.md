@@ -100,7 +100,8 @@
 	
 ### 导入数据
 
-* load data
+#### load data
+
 + 语法
 
 		load data [local] inpath 'filepath' into table table_name [partition (partcol1=val1, partcol2=val2 ...)]
@@ -111,7 +112,7 @@
 		
 		load data local inpath '/root/t_emp.txt' into table t_emp;
 
-* Inserting data into Hive Tables from queries
+#### Inserting data into Hive Tables from queries
 
 + 语法
 
