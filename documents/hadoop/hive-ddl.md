@@ -1,6 +1,6 @@
 # hive的基本操作
 
-1.	createtable
+###	createtable
 
 *	首先看例句
 
@@ -84,7 +84,7 @@
 	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
 	PARTITIONED BY:是根据那个字段进行分区
 	
-2. 删除table
+###	 删除table
 
 * drop table
 	
@@ -98,7 +98,7 @@
 		: (partition_column = partition_col_value, partition_column = partition_col_value, ...)	
 		
 	
-3. 导入数据
+### 导入数据
 
 1)load data
 
@@ -122,7 +122,7 @@
 	
 		insert into table dept_acount select dept_name,count(1) from t_emp group by dept_name;
 
-4. 常用语句
+###	 常用语句
 
 		show databases;  -- 列出所有数据库
 		use database_name; --选择一个数据库
