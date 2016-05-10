@@ -2,7 +2,7 @@
 
 ###	一、createtable
 
-*	首先看例句
+* 首先看例句
 
 ```
 CREATE TABLE page_view(
