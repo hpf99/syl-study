@@ -29,6 +29,31 @@
 			dname	string,
 			int num
 		)
+		
+		CREATE EXTERNAL TABLE page_view(
+			viewTime INT, 
+			userid BIGINT,
+     		page_url STRING, 
+     		referrer_url STRING,
+     		ip STRING COMMENT ,
+     		country STRING 
+		)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
+		STORED AS TEXTFILE
+		LOCATION '<hdfs_location>';
+		
+		create table t_person(
+			id	int,
+			name	string,
+			like	array<string>,
+			feature		map<string,string>
+		)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+		COLLECTION ITEMS TERMINATED BY '_'  --集合分割符
+		MAP KEYS TERMINATED BY ':';			 --MAP key和value分割符
+		
+		//数据格式
+		1,zhangsan,sports_books_TV,sex:男_color:red
 
 *	CREATETABLE 创建一个指定名字的表。如果相同名字的表已经存在，则抛出异常；用户可以用 IF NOT EXIST 选项来忽略这个异常
 
@@ -59,10 +84,21 @@
 	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
 	PARTITIONED BY:是根据那个字段进行分区
 	
-		
+2. 删除table
+
+* drop table
+	
+	DROP TABLE [IF EXISTS] table_name ;	
+
+* Truncate Table
+	
+	TRUNCATE TABLE table_name [PARTITION partition_spec];
+	
+	partition_spec:
+	: (partition_column = partition_col_value, partition_column = partition_col_value, ...)	
 		
 	
-2. 导入数据
+3. 导入数据
 
 1)load data
 
@@ -86,29 +122,17 @@
 	
 		insert into table dept_acount select dept_name,count(1) from t_emp group by dept_name;
 
-3. 常用语句
+4. 常用语句
 
 		show databases;  -- 列出所有数据库
 		use database_name; --选择一个数据库
 		show tables;		--列出该数据库下的所有表
 		desc table_name; --查看表结构
 		select * from table_name;  --查询该表中的所有数据  (只有查询所有数据的时候  不会执行mapreduce)
+		drop table table_name;
 	
 	
 ![查询全部](../image/hive_1.png)
 		
-*	例句
 		
-		create table t_person(
-			id	int,
-			name	string,
-			like	array<string>,
-			feature		map<string,string>
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-		COLLECTION ITEMS TERMINATED BY '_'  --集合分割符
-		MAP KEYS TERMINATED BY ':';			 --MAP key和value分割符
-		
-		//数据格式
-		1,zhangsan,sports_books_TV,sex:男_color:red
 	
