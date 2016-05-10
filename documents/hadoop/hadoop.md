@@ -193,7 +193,6 @@ node4 |     | 1   |    |      |  1  |    | 1   |      |
 
 3.编译hadoop
 
-	'''
 	tar -zxvf hadoop-2.5.2-src.tar.gz
 	cd /root/hadoop-2.5.2-src/
      cd hadoop-2.5.2-src
@@ -201,7 +200,6 @@ node4 |     | 1   |    |      |  1  |    | 1   |      |
 	
 	编译完成后会有提示，SUCCESS /
 	
-	'''
 ![编译成功](../image/hadoop_4.png)
 
 4.编译结果
