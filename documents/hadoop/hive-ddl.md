@@ -100,25 +100,24 @@
 	
 ### 导入数据
 
-1)load data
-
-*	语法
+* load data
++ 语法
 
 		load data [local] inpath 'filepath' into table table_name [partition (partcol1=val1, partcol2=val2 ...)]
 
-*	例句
++ 例句
 		
-		1)	把/root目录下的t_emp.txt文件内容导入到 t_emp表中
+		把/root目录下的t_emp.txt文件内容导入到 t_emp表中
 		
 		load data local inpath '/root/t_emp.txt' into table t_emp;
 
-2)Inserting data into Hive Tables from queries
+* Inserting data into Hive Tables from queries
 
-* 语法
++ 语法
 
 		INSERT INTO TABLE tablename1 [PARTITION (partcol1=val1, partcol2=val2 ...)] select_statement1 FROM from_statement;
 		
-* 例句
++ 例句
 	
 		insert into table dept_acount select dept_name,count(1) from t_emp group by dept_name;
 
