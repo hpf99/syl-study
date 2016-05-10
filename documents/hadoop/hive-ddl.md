@@ -4,56 +4,58 @@
 
 *	首先看例句
 
-		CREATE TABLE page_view(
-			viewTime INT, 
-			userid BIGINT,
-		 	page_url STRING, 
-		 	referrer_url STRING,
-		 	ip STRING COMMENT 'IP Address of the User'
-		 )
-		COMMENT 'This is the page view table'
-		PARTITIONED BY (ip	string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
-		STORED AS TEXTFILE;
-		
-		create table t_emp(
-			id int,
-			name	string,
-			age		int,
-			dept_name	string
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-		STORED AS TEXTFILE;
-		
-		create table dept_acount(
-			dname	string,
-			int num
-		)
-		
-		CREATE EXTERNAL TABLE page_view(
-			viewTime INT, 
-			userid BIGINT,
-     		page_url STRING, 
-     		referrer_url STRING,
-     		ip STRING COMMENT ,
-     		country STRING 
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
-		STORED AS TEXTFILE
-		LOCATION '<hdfs_location>';
-		
-		create table t_person(
-			id	int,
-			name	string,
-			like	array<string>,
-			feature		map<string,string>
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-		COLLECTION ITEMS TERMINATED BY '_'  --集合分割符
-		MAP KEYS TERMINATED BY ':';			 --MAP key和value分割符
-		
-		//数据格式
-		1,zhangsan,sports_books_TV,sex:男_color:red
+```
+CREATE TABLE page_view(
+	viewTime INT, 
+	userid BIGINT,
+ 	page_url STRING, 
+ 	referrer_url STRING,
+ 	ip STRING COMMENT 'IP Address of the User'
+ )
+COMMENT 'This is the page view table'
+PARTITIONED BY (ip	string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
+STORED AS TEXTFILE;
+
+create table t_emp(
+	id int,
+	name	string,
+	age		int,
+	dept_name	string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+create table dept_acount(
+	dname	string,
+	int num
+)
+
+CREATE EXTERNAL TABLE page_view(
+	viewTime INT, 
+	userid BIGINT,
+	page_url STRING, 
+	referrer_url STRING,
+	ip STRING COMMENT ,
+	country STRING 
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\054'
+STORED AS TEXTFILE
+LOCATION '<hdfs_location>';
+
+create table t_person(
+	id	int,
+	name	string,
+	like	array<string>,
+	feature		map<string,string>
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '_'  --集合分割符
+MAP KEYS TERMINATED BY ':';			 --MAP key和value分割符
+
+//数据格式
+1,zhangsan,sports_books_TV,sex:男_color:red
+```
 
 *	CREATETABLE 创建一个指定名字的表。如果相同名字的表已经存在，则抛出异常；用户可以用 IF NOT EXIST 选项来忽略这个异常
 
