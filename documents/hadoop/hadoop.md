@@ -198,8 +198,10 @@ node4 |     | 1   |    |      |  1  |    | 1   |      |
 	cd /root/hadoop-2.5.2-src/
      cd hadoop-2.5.2-src
 	mvn package -Pdist,native -DskipTests -Dtar
-	'''
+	
 	编译完成后会有提示，SUCCESS /
+	
+	'''
 ![编译成功](../image/hadoop_4.png)
 
 4.编译结果
