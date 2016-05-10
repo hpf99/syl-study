@@ -4,11 +4,11 @@
 * 大数据
 	+ hadoop
 		+ hdfs分布式文件系统
-			+ [hdfs安装](document/hadoop/hadoop.md)
-			+ [hdfs shell](document/hadoop/hdfs_shell.md)
-		+ [mapreduce 分布式计算框架](document/hadoop/mapred.md)
-	+ [hive 数据仓库](document/hadoop/hive.md)
-	+ [zookeeper 分布式程序协调服务](document/zookeeper.md)
+			+ [hdfs安装](documents/hadoop/hadoop.md)
+			+ [hdfs shell](documents/hadoop/hdfs_shell.md)
+		+ [mapreduce 分布式计算框架](documents/hadoop/mapred.md)
+	+ [hive 数据仓库](documents/hadoop/hive.md)
+	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 * linux 
-	+ [ntp时间服务器](document/ntp.md)
+	+ [ntp时间服务器](documents/ntp.md)
 	
