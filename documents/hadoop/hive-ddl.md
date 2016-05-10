@@ -2,6 +2,34 @@
 
 1.	createtable
 
+*	首先看例句
+
+		CREATE TABLE page_view(
+			viewTime INT, 
+			userid BIGINT,
+		 	page_url STRING, 
+		 	referrer_url STRING,
+		 	ip STRING COMMENT 'IP Address of the User'
+		 )
+		COMMENT 'This is the page view table'
+		PARTITIONED BY (ip	string)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
+		STORED AS TEXTFILE;
+		
+		create table t_emp(
+			id int,
+			name	string,
+			age		int,
+			dept_name	string
+		)
+		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+		STORED AS TEXTFILE;
+		
+		create table dept_acount(
+			dname	string,
+			int num
+		)
+
 *	CREATETABLE 创建一个指定名字的表。如果相同名字的表已经存在，则抛出异常；用户可以用 IF NOT EXIST 选项来忽略这个异常
 
 *	EXTERNAL关键字可以让用户创建一个外部表，在建表的同时指定一个指向实际数据的路径（LOCATION）.
@@ -27,38 +55,11 @@
 *	分区表实际是一个文件夹，表名即文件夹名，每个分区，实际是表名这个文件夹下面的不同文件。
 	分区可以根据时间、地点等等进行划分。
 
-
-*	例句
-	
-		CREATE TABLE page_view(
-			viewTime INT, 
-			userid BIGINT,
-		 	page_url STRING, 
-		 	referrer_url STRING,
-		 	ip STRING COMMENT 'IP Address of the User'
-		 )
-		COMMENT 'This is the page view table'
-		PARTITIONED BY (ip	string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\001'
-		STORED AS TEXTFILE;
-
 *	terminated by：关于来源的文本数据的字段间隔符
 	如果要将自定义间隔符的文件读入一个表，需要通过创建表的语句来指明输入文件间隔符，然后load data到这个表。
 	PARTITIONED BY:是根据那个字段进行分区
 	
-		create table t_emp(
-			id int,
-			name	string,
-			age		int,
-			dept_name	string
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-		STORED AS TEXTFILE;
 		
-		create table dept_acount(
-			dname	string,
-			int num
-		)
 		
 	
 2. 导入数据
