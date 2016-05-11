@@ -1,12 +1,15 @@
 # 一、hadoop 的安装  以2.5.2为例
 ### 1. 服务器列表
 
-node  | NN  | DN  |ZK  | ZKFC | JN  | RM | DM  | HIVE | MYSQL
----   | --- | --- | ---| -----| --- | ---| --- | ---  | ----
-node1 | 1   |     | 1  |   1  |     | 1  |     |  1   |
-node2 | 1   | 1   | 1  |   1  |  1  |    | 1   |      |
-node3 |     | 1   | 1  |      |  1  |    | 1   |      |   1
-node4 |     | 1   |    |      |  1  |    | 1   |      |
+node  | NN  | DN  |ZK  | ZKFC | JN  | RM | DM  | HIVE | MYSQL |  HM   |  RS 
+---   | --- | --- | ---| -----| --- | ---| --- | ---  | ----  | ----- | -----
+node1 | 1   |     | 1  |   1  |     | 1  |     |  1   |		  |       |   1  
+node2 | 1   | 1   | 1  |   1  |  1  |    | 1   |      |		  |       |  
+node3 |     | 1   | 1  |      |  1  |    | 1   |      |   1	  |   1   |   1
+node4 |     | 1   |    |      |  1  |    | 1   |      |		  |   1   |   1
+
+> 	NN:NameNode DN:DataNode ZK:ZooKeeper ZKFC:zookeeper Failover Controller 
+>	JN:JournalNode RM:ResourceManager DM:DataManager HM:HMaster RS:RegionServer
 	
 ### 2. 安装hadoop [hadoop官网](http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html) 配置
 
