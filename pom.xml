@@ -10,6 +10,7 @@
 		<module>syl-zookeeper-study</module>
 		<module>syl-hadoop-study</module>
 		<module>syl-study-common</module>
+		<module>syl-hbase-study</module>
 	</modules>
 
 	<properties>
@@ -97,6 +98,18 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.38</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.apache.hbase</groupId>
+				<artifactId>hbase-common</artifactId>
+				<version>1.0.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hbase</groupId>
+				<artifactId>hbase-client</artifactId>
+				<version>1.0.3</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
