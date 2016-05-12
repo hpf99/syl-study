@@ -70,7 +70,7 @@ node4
 ```
 <property>
       <name>hbase.zookeeper.quorum</name>
-      <value>rs1.example.com,rs2.example.com,rs3.example.com,rs4.example.com,rs5.example.com</value>
+      <value>node1,node2,node3</value>
 </property>
 <property>
       <name>hbase.zookeeper.property.dataDir</name>
