@@ -65,9 +65,8 @@ node4
 > 让HBase使用一个已有的不被HBase托管的Zookeep集群，需要设置 conf/hbase-env.sh文件中的HBASE_MANAGES_ZK 属性为 false
 > export HBASE_MANAGES_ZK=false
 
-####### 编辑 conf/hbase-site.xml
-
 ```
+编辑 conf/hbase-site.xml
 <property>
       <name>hbase.zookeeper.quorum</name>
       <value>node1,node2,node3</value>
