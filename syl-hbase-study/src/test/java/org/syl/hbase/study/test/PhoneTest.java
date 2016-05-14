@@ -18,6 +18,8 @@ import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,6 +93,15 @@ public class PhoneTest {
 			}
 		}
 		
+		Scan scan = new Scan();
+		ResultScanner resultScanner = table.getScanner(scan);
+		System.out.println("scan");
+		for (Result r : resultScanner) {
+			List<Cell> cs = r.listCells();
+			for (Cell cell : cs) {
+				System.out.println(new String(cell.getQualifierArray()));
+			}
+		}
 	}
 
 }
