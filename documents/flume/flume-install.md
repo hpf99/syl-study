@@ -52,6 +52,11 @@
 	```
 	 + 启动
 	```
-		bin/flume-ng agent -n agent1 -c conf -f conf/example -Dflume.root.logger=DEBUG,console
+	 bin/flume-ng agent -n agent1 -c conf -f conf/example -Dflume.root.logger=DEBUG,console
 	```
+	 + 测试
+	```
+	 往/root/hmbbs/目录下放一个新文件，这时flume就会读取该文件并发送到hdfs指定的目录/hmbbs目录下
+	```
+
 	 
