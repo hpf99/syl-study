@@ -139,6 +139,6 @@
 	
 ```
 	添加hive.root.logger=INFO,console 到hive-log4j.properties 文件中
-
+```
 	
 	
