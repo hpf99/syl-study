@@ -140,5 +140,15 @@
 ```
 	添加hive.root.logger=INFO,console 到hive-log4j.properties 文件中
 ```
+
+* hiveserver2 的客户端 beeline
+
+```
+	./beeline
+	连接服务：!connect jdbc:hive2://node1:10000/default
+	默认用户名为root  密码为空
+	可以执行一些测试命令
+	show tables;
+```
 	
 	
