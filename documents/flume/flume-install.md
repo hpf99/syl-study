@@ -9,9 +9,9 @@
 
 * 安装
 	 + 下载 apache-flume-1.6.0-bin.tar.gz 压缩包 解压到/home/flume目录下
-	```
+		```
 		编辑conf/flume-env.sh 文件 ， 配置JAVA_HOME 环境变量
 		export JAVA_HOME=/usr/java/jdk1.8.0_65
-	```
+		```
 	 +  
 
