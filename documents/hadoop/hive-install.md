@@ -121,7 +121,34 @@
 	
 	保存重启 即可
 	
-	
+# 三、以服务方式启动 hiveServer2
 
+```
+	./hiveserver2
+```
+
+> 执行了此命令后可能看不见服务启动时的日志，是应为日志级别默认为WARN级别，需要看日志的话就把日志级别调到info 或debug级别
+
+* 加启动参数的形式
+
+```
+	./hiveserver2 --hiveconf hive.root.logger=INFO,console
+```
+	
+* 修改hive-log4j.properties
+	
+```
+	添加hive.root.logger=INFO,console 到hive-log4j.properties 文件中
+```
+
+* hiveserver2 的客户端 beeline
+
+```
+	./beeline
+	连接服务：!connect jdbc:hive2://node1:10000/default
+	默认用户名为root  密码为空
+	可以执行一些测试命令
+	show tables;
+```
 	
 	

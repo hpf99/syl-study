@@ -12,6 +12,9 @@
 		+ [hive 数据类型](documents/hadoop/hive-datatype.md)
 		+ [hive ddl语句](documents/hadoop/hive-ddl.md)
 		+ [hive dml语句](documents/hadoop/hive-dml.md)
+	+ hbase 
+		+ [hbase HA 搭建](documents/hbase/hbase-ha-install.md)
+		+ [hbase 问题](documents/hbase/hbase-xshell.md)
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)
