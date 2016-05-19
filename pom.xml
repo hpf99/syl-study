@@ -12,6 +12,7 @@
 		<module>syl-study-common</module>
 		<module>syl-hbase-study</module>
 		<module>syl-hive-study</module>
+		<module>syl-kafka-study</module>
 	</modules>
 
 	<properties>
