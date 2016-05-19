@@ -235,3 +235,53 @@
         --删除表或分区中的所有行
         truncate table table_name [partition (partition_col_name=partition_val_name,...)]
         ```
+        
+* **Alter Table/Partition/Column**
+    + alter table
+        
+        ```
+        --rename table_name 修改表名会自动修改hdfs的location
+        alter table table_name rename to new_table_name;
+        
+        --修改表属性
+        alter table table_name set tblproperties (property_name=property_value,...);
+        
+        --修改表注释 需要通过修改表属性来实现
+        alter table table_name set tblproperties ('comment' = new_comment);
+        
+        --Add SerDe Properties
+        //TODO
+        
+        --Alter Table Storage Properties
+        //TODO
+        
+        --Alter Table Skewed
+        /TODO
+        
+        --Alter Table Not Skewed
+        //TODO
+        
+        --Alter Table Not Stored as Directories
+        alter table table_name not stored as directories;
+        
+        --Alter Table Set Skewed Location
+        //TODO
+        
+        --Additional Alter Table Statements
+        //TODO
+        ```
+    + Alter Partition
+        
+        ```
+        --add partition
+        alter table table_name add [if not exists] partition (part_name=val,...) location '/path/to/us/part8'
+                                                   partition (part_name=val,...) location '/path/to/us/part9'
+        
+        eg:
+        alter table table_name add partition (dt='2008-02-02',country='us') location '/path/to/us/part8'
+                                   partition (dt='2008-02-03',country='us') location '/path/to/us/part9'
+                                   
+        --Rename Partition
+        alter table table_name partition (part_name=val) rename to partition (part_name=new_val);
+        
+        ```
