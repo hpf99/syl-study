@@ -23,6 +23,7 @@ import org.apache.hadoop.hbase.client.Scan;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.syl.hbase.study.HbaseWriter;
 
 public class PhoneTest {
 	
@@ -103,5 +104,17 @@ public class PhoneTest {
 			}
 		}
 	}
+	
+	
+	@Test
+	public void createT(){
+		HbaseWriter write = new HbaseWriter();
+		try {
+			write.deleteTable("test_tdc");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 }
