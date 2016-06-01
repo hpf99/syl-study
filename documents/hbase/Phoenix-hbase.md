@@ -27,12 +27,12 @@
 另一种是通过基于mapreduce的导入工具。psql.py命令工具是单线程的，
 适合导入几十兆以内的数据，基于mapreduce的导入工具可以更好的导入更大的数据
 * psql.py 导入[官网资料](http://phoenix.apache.org/bulk_dataload.html)
-	+ 数据样例 data.csv
++ 数据样例 data.csv
 ```
 12345,John,Doe
 67890,Mary,Poppins
 ```
-	+ 表结构
++ 表结构
 ```
 CREATE TABLE example (
 my_pk bigint not null,
@@ -40,7 +40,7 @@ m.first_name varchar(50),
 m.last_name varchar(50) 
 CONSTRAINT pk PRIMARY KEY (my_pk))
 ```
-	+ 上传数据
++ 上传数据
 ```
 ./psql.py node1,node2,node3 -t EXAMPLE data.csv
 //指定表名 貌似必须大写 小写会报错(有待继续了解)
