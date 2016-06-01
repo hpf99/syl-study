@@ -51,7 +51,7 @@ OLAP的特点一般有:
 2.java -jar squirrel-sql-3.7.1-standard.jar 运行该jar 进行安装
 3.把phoenix包中的phoenix-core-4.7.0-HBase-1.0.jar
     phoenix-4.7.0-HBase-1.0-client.jar拷贝到squirrel安装目录下的lib包下
-3.安装完成后打开该客户端进入主界面
-
-
+4.安装完成后打开该客户端进入主界面 具体的添加驱动,连接phoenix-hbase参考热心
+网友的帖子
+http://blog.csdn.net/caomiao2006/article/details/46463227
 ```
