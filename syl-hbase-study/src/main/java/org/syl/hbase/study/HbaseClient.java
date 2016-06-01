@@ -35,6 +35,7 @@ public class HbaseClient {
 			synchronized (_lock) {
 				if (conn == null) {
 					Configuration config = HBaseConfiguration.create();
+					//添加zookeeper的配置
 					config.set("hbase.zookeeper.quorum", ConfigUtil.getValue("hbase.zk"));
 					try {
 						conn = ConnectionFactory.createConnection(config);
@@ -48,16 +49,22 @@ public class HbaseClient {
 		return conn;
 	}
 	
-	public Admin getAdmin() throws IOException{
+	public Admin getAdmin(){
 		try (Admin admin = getConnection().getAdmin()){
 			return admin;
-		} 
+		} catch(IOException e){
+		    e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public Table getTable(String tableName) throws IOException{
+	public Table getTable(String tableName) {
 		try(Table table = getConnection().getTable(TableName.valueOf(tableName))){
 			return table;
+		}catch(IOException e){
+		    e.printStackTrace();
 		}
+		return null;
 	}
 	
 }

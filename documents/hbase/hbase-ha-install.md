@@ -62,7 +62,7 @@ node4
 
 * Hbase中配置Zookeeper 集群 编辑 conf/hbase-env.sh 和 conf/hbase-site.xml
 
-> 让HBase使用一个已有的不被HBase托管的Zookeep集群，需要设置 conf/hbase-env.sh文件中的HBASE_MANAGES_ZK 属性为 false
+> 让HBase使用一个已有的不被HBase托管的Zookeeper集群，需要设置 conf/hbase-env.sh文件中的HBASE_MANAGES_ZK 属性为 false
 > export HBASE_MANAGES_ZK=false
 
 ```

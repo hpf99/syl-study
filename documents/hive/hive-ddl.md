@@ -285,3 +285,11 @@
         alter table table_name partition (part_name=val) rename to partition (part_name=new_val);
         
         ```
+
+* **问题**
+	```
+	--当在Hive中创建表的时候报错
+	FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:For direct MetaStore DB connections, we don't support retries at the client level.)
+	--这是由于字符集的问题，需要配置MySQL的字符集
+	--alter database hive character set latin1;
+	```

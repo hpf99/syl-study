@@ -1,18 +1,21 @@
 package org.syl.hbase.study.test;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.CellScanner;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
-import org.apache.hadoop.hbase.MasterNotRunningException;
 import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.ZooKeeperConnectionException;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
@@ -115,6 +118,37 @@ public class PhoneTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testPhoenix(){
+	    Statement stmt = null;
+        ResultSet rset = null;
+	    try {
+	        Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
+            Connection con = DriverManager.getConnection("jdbc:phoenix:node1,node2,node3");
+//            stmt = con.createStatement();
+//            stmt.executeUpdate("create table test (mykey integer not null primary key, mycolumn varchar)");
+//            stmt.executeUpdate("upsert into test values (1,'Hello')");
+//            stmt.executeUpdate("upsert into test values (2,'World!')");
+//            con.commit();
+            
+            PreparedStatement statement = con.prepareStatement("select * from t_cdr");
+            rset = statement.executeQuery();
+            while (rset.next()) {
+                System.out.println(rset.getString("name"));
+                System.out.println(rset.getString("id"));
+                System.out.println(rset.getString("age"));
+            }
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	
 	
 
 }

@@ -8,13 +8,15 @@
 			+ [hdfs shell](documents/hadoop/hdfs-shell.md)
 		+ [mapreduce 分布式计算框架](documents/hadoop/mapred.md)
 	+ hive 数据仓库
-		+ [hive 安装](documents/hadoop/hive-install.md)
-		+ [hive 数据类型](documents/hadoop/hive-datatype.md)
-		+ [hive ddl语句](documents/hadoop/hive-ddl.md)
-		+ [hive dml语句](documents/hadoop/hive-dml.md)
+		+ [hive 安装](documents/hive/hive-install.md)
+		+ [hive 数据类型](documents/hive/hive-datatype.md)
+		+ [hive ddl语句](documents/hive/hive-ddl.md)
+		+ [hive dml语句](documents/hive/hive-dml.md)
 	+ hbase 
 		+ [hbase HA 搭建](documents/hbase/hbase-ha-install.md)
 		+ [hbase 问题](documents/hbase/hbase-xshell.md)
+		+ [hbase-phoenix](documents/hbase/Phoenix-hbase.md)
+		+ [hbase-phoenix-squirrel](documents/hbase/phoenix-squirrel.md)
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)

@@ -13,9 +13,9 @@
 
 	<dependencies>
 		<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-			</dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.hbase</groupId>
 			<artifactId>hbase-common</artifactId>
@@ -23,6 +23,14 @@
 		<dependency>
 			<groupId>org.apache.hbase</groupId>
 			<artifactId>hbase-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.phoenix</groupId>
+			<artifactId>phoenix-server-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.phoenix</groupId>
+			<artifactId>phoenix-core</artifactId>
 		</dependency>
 
 	</dependencies>
