@@ -12,7 +12,6 @@
     <artifactId>syl-kafka-study</artifactId>
     <packaging>jar</packaging>
 
-    <name>A Camel Route</name>
     <url>http://www.myorganization.org</url>
 
     <properties>
