@@ -13,6 +13,7 @@
 		<module>syl-hbase-study</module>
 		<module>syl-hive-study</module>
 		<module>syl-kafka-study</module>
+		<module>syl-cat-study</module>
 	</modules>
 
 	<properties>
