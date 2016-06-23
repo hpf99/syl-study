@@ -14,6 +14,7 @@
 		<module>syl-hive-study</module>
 		<module>syl-kafka-study</module>
 		<module>syl-cat-study</module>
+		<module>syl-spring-study</module>
 	</modules>
 
 	<properties>

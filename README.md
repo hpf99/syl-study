@@ -17,9 +17,19 @@
 		+ [hbase 问题](documents/hbase/hbase-xshell.md)
 		+ [hbase-phoenix](documents/hbase/Phoenix-hbase.md)
 		+ [hbase-phoenix-squirrel](documents/hbase/phoenix-squirrel.md)
+	+ flume
+	    + [flume安装](documents/flume/flume-install.md)
+	    + [flume介绍](documents/flume/flume-intro.md)
+	+ solr
+	    + [solr-shell](documents/solr/solr-shell.md)
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)
 * [git](documents/git/git.md)
+* cat
+    + [cat安装](documents/cat/CAT安装说明文档.md)
+    + [cat配置](documents/cat/CAT配置加载说明.md)
++ 
+   
 	
 	
