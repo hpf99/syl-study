@@ -28,6 +28,26 @@ sbin/start-all.sh
 //在各个节点下jps查看进程  node1下会有 master worker两个
 //其他的节点只有worker
 //http://node1:8080进入web界面查看
+Spark Master at spark://node1:7077
+
 bin/spark-shell 启动spark shell
 //http://node1:4040  spark shell web界面
+```
+* scala 程序连接spark
+```
+object SparkStudy {
+
+    def main(args: Array[String]) {
+        val env = Utils.getConfiguration();
+        val sparkConfig = new SparkConf();
+        sparkConfig.setAppName("study_spark")
+        sparkConfig.setMaster("spark://node1:7077");
+        val ct = new SparkContext(sparkConfig);
+        val data = ct.textFile("D:\\desktop\\hive.txt")
+        data.filter(line=>{
+            println(line);
+            return true;
+        })
+    }
+}
 ```
