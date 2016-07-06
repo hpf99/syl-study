@@ -23,13 +23,15 @@
 	+ solr
 	    + [solr-shell](documents/solr/solr-shell.md)
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
+	+ spark
+	    + [spark集群安装](documents/spark/spark-cluster-install.md)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)
 * [git](documents/git/git.md)
 * cat
     + [cat安装](documents/cat/CAT安装说明文档.md)
     + [cat配置](documents/cat/CAT配置加载说明.md)
-+ 
++ spring
    
 	
 	
