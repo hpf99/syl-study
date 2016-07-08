@@ -1,4 +1,4 @@
-### spark 集群安装 以spark-1.6.1-bin-hadoop2.4.tgz 为例
+### spark 独立集群安装 以spark-1.6.1-bin-hadoop2.4.tgz 为例
 * 前提条件
 ```
 1. JAVA_HOME 环境变量的配置 1.8
