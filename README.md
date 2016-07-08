@@ -25,6 +25,7 @@
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 	+ spark
 	    + [spark集群安装](documents/spark/spark-cluster-install.md)
+	    + [spark独立模式](documents/spark/spark独立模式.md)
 	+ scala
 	    + [基础](documents/scala/一、基础.md)
 	    + [控制结构和函数](documents/scala/二、控制结构和函数.md)
