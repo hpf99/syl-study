@@ -25,6 +25,10 @@
 	+ [zookeeper 分布式程序协调服务](documents/zookeeper.md)
 	+ spark
 	    + [spark集群安装](documents/spark/spark-cluster-install.md)
+	+ scala
+	    + [基础](documents/scala/一、基础.md)
+	    + [控制结构和函数](documents/scala/二、控制结构和函数.md)
+	    + [集合](documents/scala/三、集合.md)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)
 * [git](documents/git/git.md)
