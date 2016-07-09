@@ -59,14 +59,15 @@ object SparkStudy {
 > 配置
 > 要使用这种恢复模式，你需要在spark-env中设置SPARK_DAEMON_JAVA_OPTS，可用的属性如下：
 
-系统属性|含义
---  | --
-spark.deploy.recoveryMode|设为ZOOKEEPER以启用热备master恢复模式（默认空）
-spark.deploy.zookeeper.url|Zookeeper集群URL（如：node1:2181,node2:2181,node3:2181）
-spark.deploy.zookeeper.dir|用于存储可恢复状态的Zookeeper目录（默认 /spark）
+系统属性 | 含义
+---  | ---
+spark.deploy.recoveryMode | 设为ZOOKEEPER以启用热备master恢复模式（默认空）
+spark.deploy.zookeeper.url | Zookeeper集群URL（如：node1:2181,node2:2181,node3:2181）
+spark.deploy.zookeeper.dir | 用于存储可恢复状态的Zookeeper目录（默认 /spark）
 
 
 > 例如以下配置 复制到各个节点上 重新启动服务 ，在另外一个节点上执行./start-master.sh 再启动一个master 为standby
+
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_65
 export SCALA_HOME=/home/scala-2.10.6
@@ -75,6 +76,8 @@ export SPARK_WORKER_MEMORY=1g
 export HADOOP_CONF_DIR=/home/hadoop/hadoop-2.5.2/etc/hadoop
 export SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=node1:2181,node2:2181,node3:2181"
 ```
+
 * 查看配置基于zookeeper的高可用结果
-[master](../image/spark-master.png)
-[standby](../image/spark-standby.png)
+
+![master](../image/spark-master.png)
+![standby](../image/spark-standby.png)
