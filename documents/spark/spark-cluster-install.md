@@ -53,9 +53,12 @@ object SparkStudy {
 ```
 
 * 高可用性
+
 > 独立调度的集群能够容忍worker节点的失败（在spark本身来说，它能够将失败的工作移到其他的work节点上）。
 > 然而调度需要master做出调度决策，而这会造成单点失败：如果master挂了，任何应用都不能提交和调度。
+
 * 基于zookeeper的高可用
+
 > 配置
 > 要使用这种恢复模式，你需要在spark-env中设置SPARK_DAEMON_JAVA_OPTS，可用的属性如下：
 
