@@ -28,14 +28,21 @@
 	+ scala
 	    + [基础](documents/scala/一、基础.md)
 	    + [控制结构和函数](documents/scala/二、控制结构和函数.md)
-	    + [集合](documents/scala/三、集合.md)
+	    + [集合](http://note.youdao.com/yws/public/redirect/share?id=5c3ef4d09c431857b05afabc6a842686&type=false)
+	    + [协变与逆变](http://note.youdao.com/share/?id=0041c3ca84350b6a27b6d29125f3a3e3&type=note)
 * linux 
 	+ [ntp时间服务器](documents/ntp.md)
+	+ [用户管理](http://note.youdao.com/yws/public/redirect/share?id=6099ddb67fc8c02f3bf7328a2dad8fd6&type=false)
+	+ [文件管理](http://note.youdao.com/yws/public/redirect/share?id=ca867c0ba022e42b4428e153b5815165&type=false)
+	+ [正则表达式](http://note.youdao.com/yws/public/redirect/share?id=27b3446661d9565408a386b6944c719c&type=false)
+	+ [grep命令](http://note.youdao.com/yws/public/redirect/share?id=2a0202f53b02b61404ffe93efcc1a80a&type=false)
 * [git](documents/git/git.md)
 * cat
     + [cat安装](documents/cat/CAT安装说明文档.md)
     + [cat配置](documents/cat/CAT配置加载说明.md)
-+ spring
+* spring
+* java
+    + [java8Lamda表达式](http://note.youdao.com/yws/public/redirect/share?id=b077f3207f81e1c2c5d6853be4883c81&type=false)
    
 	
 	

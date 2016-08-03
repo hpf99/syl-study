@@ -12,4 +12,6 @@
 	
 	./hdfs dfs -ls /home/input/			 跟Linux中的ls命令类似  列出/home/input/目录下的所有目录及文件
 	
+	./hdfs dfs -rm /my/preferred/computer.json  删除/my/preferred/computer.json文件
+	
 	
