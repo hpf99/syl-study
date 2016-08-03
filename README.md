@@ -44,6 +44,9 @@
 * spring
 * java
     + [java8Lamda表达式](http://note.youdao.com/yws/public/redirect/share?id=b077f3207f81e1c2c5d6853be4883c81&type=false)
-   
+* lua
+    + [lua-linux环境安装](http://note.youdao.com/yws/public/redirect/share?id=f3eadd8cbaa44c70952d75549270d4cd&type=false)
+    + [lua-基础语法](http://note.youdao.com/yws/public/redirect/share?id=ea23db651f63fc3d9b737c4ada51a6d7&type=false)
+    
 	
 	
