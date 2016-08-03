@@ -17,6 +17,7 @@
 		+ [hbase 问题](documents/hbase/hbase-xshell.md)
 		+ [hbase-phoenix](documents/hbase/Phoenix-hbase.md)
 		+ [hbase-phoenix-squirrel](documents/hbase/phoenix-squirrel.md)
+		+ [hbase-shell](http://note.youdao.com/yws/public/redirect/share?id=16ec07d704eb1e72b8093e0be03fb1a0&type=false)
 	+ flume
 	    + [flume安装](documents/flume/flume-install.md)
 	    + [flume介绍](documents/flume/flume-intro.md)
@@ -47,6 +48,7 @@
 * lua
     + [lua-linux环境安装](http://note.youdao.com/yws/public/redirect/share?id=f3eadd8cbaa44c70952d75549270d4cd&type=false)
     + [lua-基础语法](http://note.youdao.com/yws/public/redirect/share?id=ea23db651f63fc3d9b737c4ada51a6d7&type=false)
-    
+* JMS
+    + [JMS消息模型](http://note.youdao.com/yws/public/redirect/share?id=346cc35cdd154d339d77890b8b9b9497&type=false)
 	
 	
